@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.originmobi.pdv.filter.FornecedorFilter;
-import net.originmobi.pdv.model.Fornecedor;
+import net.originmobi.pdv.domain.Fornecedor;
 import net.originmobi.pdv.repository.FornecedorRepository;
 
 @Service

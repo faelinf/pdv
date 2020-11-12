@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.Titulo;
-import net.originmobi.pdv.model.TituloTipo;
-import net.originmobi.pdv.model.cartao.MaquinaCartao;
+import net.originmobi.pdv.domain.Titulo;
+import net.originmobi.pdv.domain.TituloTipo;
+import net.originmobi.pdv.domain.cartao.MaquinaCartao;
 import net.originmobi.pdv.service.TituloTipoService;
 import net.originmobi.pdv.service.cartao.MaquinaCartaoService;
 

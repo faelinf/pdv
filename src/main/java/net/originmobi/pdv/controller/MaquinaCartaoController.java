@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.originmobi.pdv.enumerado.caixa.CaixaTipo;
-import net.originmobi.pdv.model.Caixa;
-import net.originmobi.pdv.model.cartao.MaquinaCartao;
+import net.originmobi.pdv.domain.Caixa;
+import net.originmobi.pdv.domain.cartao.MaquinaCartao;
 import net.originmobi.pdv.service.CaixaService;
 import net.originmobi.pdv.service.cartao.MaquinaCartaoService;
 

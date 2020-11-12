@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import net.originmobi.pdv.filter.PagarParcelaFilter;
-import net.originmobi.pdv.model.Pagar;
-import net.originmobi.pdv.model.PagarParcela;
+import net.originmobi.pdv.domain.Pagar;
+import net.originmobi.pdv.domain.PagarParcela;
 import net.originmobi.pdv.repository.PagarParcelaRespository;
 
 @Service

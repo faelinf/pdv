@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.originmobi.pdv.enumerado.ajuste.AjusteStatus;
-import net.originmobi.pdv.model.Ajuste;
-import net.originmobi.pdv.model.AjusteProduto;
-import net.originmobi.pdv.model.Produto;
+import net.originmobi.pdv.domain.Ajuste;
+import net.originmobi.pdv.domain.AjusteProduto;
+import net.originmobi.pdv.domain.Produto;
 import net.originmobi.pdv.repository.AjusteProdutoRepository;
 
 @Service

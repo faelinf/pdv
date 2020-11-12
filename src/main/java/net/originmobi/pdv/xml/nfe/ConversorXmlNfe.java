@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
-import net.originmobi.pdv.model.NotaFiscal;
+import net.originmobi.pdv.domain.NotaFiscal;
 import net.originmobi.pdv.service.notafiscal.NotaFiscalService;
 
 public class ConversorXmlNfe implements Converter {

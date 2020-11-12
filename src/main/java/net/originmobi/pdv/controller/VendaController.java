@@ -1,17 +1,24 @@
 package net.originmobi.pdv.controller;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
+import net.originmobi.pdv.command.AbrirVendaCommand;
+import net.originmobi.pdv.domain.PagamentoTipo;
+import net.originmobi.pdv.domain.Pessoa;
+import net.originmobi.pdv.domain.Produto;
+import net.originmobi.pdv.domain.Titulo;
+import net.originmobi.pdv.domain.venda.Venda;
+import net.originmobi.pdv.enumerado.VendaSituacao;
+import net.originmobi.pdv.filter.VendaFilter;
+import net.originmobi.pdv.service.PagamentoTipoService;
+import net.originmobi.pdv.service.PessoaService;
+import net.originmobi.pdv.service.ProdutoService;
+import net.originmobi.pdv.service.VendaProdutoService;
+import net.originmobi.pdv.service.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,175 +30,166 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.enumerado.VendaSituacao;
-import net.originmobi.pdv.filter.VendaFilter;
-import net.originmobi.pdv.model.PagamentoTipo;
-import net.originmobi.pdv.model.Pessoa;
-import net.originmobi.pdv.model.Produto;
-import net.originmobi.pdv.model.Titulo;
-import net.originmobi.pdv.model.Venda;
-import net.originmobi.pdv.service.PagamentoTipoService;
-import net.originmobi.pdv.service.PessoaService;
-import net.originmobi.pdv.service.ProdutoService;
-import net.originmobi.pdv.service.VendaProdutoService;
-import net.originmobi.pdv.service.VendaService;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/venda")
 public class VendaController {
 
-	private static final String VENDA_LIST = "venda/list";
+  private static final String VENDA_LIST = "venda/list";
 
-	private static final String VENDA_FORM = "venda/form";
+  private static final String VENDA_FORM = "venda/form";
 
-	@Autowired
-	private VendaService vendas;
+  @Autowired
+  private VendaService vendasService;
 
-	@Autowired
-	private PessoaService pessoas;
+  @Autowired
+  private PessoaService pessoas;
 
-	@Autowired
-	private ProdutoService produtos;
+  @Autowired
+  private ProdutoService produtos;
 
-	@Autowired
-	private VendaProdutoService vendaProdutos;
+  @Autowired
+  private VendaProdutoService vendaProdutos;
 
-	@Autowired
-	private PagamentoTipoService pagamentoTipos;
+  @Autowired
+  private PagamentoTipoService pagamentoTipos;
 
-	@Autowired
-	private TituloService titulos;
+  @Autowired
+  private TituloService titulos;
 
-	@GetMapping("/form")
-	public ModelAndView form() {
-		ModelAndView mv = new ModelAndView(VENDA_FORM);
-		mv.addObject(new Venda());
-		return mv;
-	}
+  @GetMapping("/form")
+  public ModelAndView form() {
+    ModelAndView mv = new ModelAndView(VENDA_FORM);
+    mv.addObject(new Venda());
+    return mv;
+  }
 
-	@GetMapping("/status/{status}")
-	public ModelAndView listaPedidos(@ModelAttribute("filter") VendaFilter filter,
-			@PathVariable("status") String status, Pageable pageable, Model model) {
-		ModelAndView mv = new ModelAndView(VENDA_LIST);
-		Page<Venda> vendasPaginadas = vendas.busca(filter, status, pageable);
-		mv.addObject("vendas", vendasPaginadas);
+  @GetMapping("/status/{status}")
+  public ModelAndView listaPedidos(@ModelAttribute("filter") VendaFilter filter,
+                                   @PathVariable("status") String status, Pageable pageable, Model model) {
+    ModelAndView mv = new ModelAndView(VENDA_LIST);
+    Page<Venda> vendasPaginadas = vendasService.busca(filter, status, pageable);
+    mv.addObject("vendas", vendasPaginadas);
 
-		model.addAttribute("qtdpaginas", vendasPaginadas.getTotalPages());
-		model.addAttribute("pagAtual", vendasPaginadas.getPageable().getPageNumber());
-		model.addAttribute("proxPagina", vendasPaginadas.getPageable().next().getPageNumber());
-		model.addAttribute("pagAnterior", vendasPaginadas.getPageable().previousOrFirst().getPageNumber());
-		model.addAttribute("hasNext", vendasPaginadas.hasNext());
-		model.addAttribute("hasPrevious", vendasPaginadas.hasPrevious());
-		
-		if (vendasPaginadas.getContent().size() > 0)
-			model.addAttribute("statuVenda", vendasPaginadas.getContent().get(0).getSituacao());
+    model.addAttribute("qtdpaginas", vendasPaginadas.getTotalPages());
+    model.addAttribute("pagAtual", vendasPaginadas.getPageable().getPageNumber());
+    model.addAttribute("proxPagina", vendasPaginadas.getPageable().next().getPageNumber());
+    model.addAttribute("pagAnterior", vendasPaginadas.getPageable().previousOrFirst().getPageNumber());
+    model.addAttribute("hasNext", vendasPaginadas.hasNext());
+    model.addAttribute("hasPrevious", vendasPaginadas.hasPrevious());
 
-		return mv;
-	}
+    if (vendasPaginadas.getContent().size() > 0)
+      model.addAttribute("statuVenda", vendasPaginadas.getContent().get(0).getSituacao());
 
-	@PostMapping
-	public String abrirVenda(@Validated Venda venda, Errors errors, RedirectAttributes attributes) {
-		if (errors.hasErrors())
-			return VENDA_FORM;
+    return mv;
+  }
 
-		Long codigo = null;
+  @PostMapping
+  public String abrirVenda(AbrirVendaCommand command, RedirectAttributes attributes) {
+    final Venda venda = vendasService.when(command);
+//    try {
 
-		try {
-			codigo = vendas.abreVenda(venda);
-			attributes.addFlashAttribute("mensagem", "Pedido Salvo");
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
+//      attributes.addFlashAttribute("mensagem", "Pedido Salvo");
+//    } catch (Exception e) {
+//      e.getStackTrace();
+//    }
 
-		return "redirect:/venda/" + codigo.toString();
+//		return VENDA_FORM;
+    return "redirect:/venda/" + venda.getCodigo();
+  }
 
-	}
+  @GetMapping("{codigo}")
+  public ModelAndView buscaVenda(@PathVariable("codigo") Venda venda) {
+    ModelAndView mv = new ModelAndView(VENDA_FORM);
+    mv.addObject("venda", venda);
+    mv.addObject("produtosVenda", vendaProdutos.listaProdutosVenda(venda));
+    return mv;
+  }
 
-	@GetMapping("{codigo}")
-	public ModelAndView buscaVenda(@PathVariable("codigo") Venda venda) {
-		ModelAndView mv = new ModelAndView(VENDA_FORM);
-		mv.addObject("venda", venda);
-		mv.addObject("produtosVenda", vendaProdutos.listaProdutosVenda(venda));
-		return mv;
-	}
+  @RequestMapping(value = "/addproduto", method = RequestMethod.POST)
+  public @ResponseBody
+  String addProdutoVenda(@RequestParam Map<String, String> request) {
+    Long codVen = Long.decode(request.get("codigoVen"));
+    Long codPro = Long.decode(request.get("codigoPro"));
+    Double vlBalanca = Double.valueOf(request.get("valorBalanca"));
 
-	@RequestMapping(value = "/addproduto", method = RequestMethod.POST)
-	public @ResponseBody String addProdutoVenda(@RequestParam Map<String, String> request) {
-		Long codVen = Long.decode(request.get("codigoVen"));
-		Long codPro = Long.decode(request.get("codigoPro"));
-		Double vlBalanca = Double.valueOf(request.get("valorBalanca"));
+    String mensagem = "";
 
-		String mensagem = "";
+    try {
+      mensagem = vendasService.addProduto(codVen, codPro, vlBalanca);
+    } catch (Exception e) {
+      e.getStackTrace();
+    }
 
-		try {
-			mensagem = vendas.addProduto(codVen, codPro, vlBalanca);
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
+    return mensagem;
+  }
 
-		return mensagem;
-	}
+  @RequestMapping(value = "/removeproduto", method = RequestMethod.POST)
+  public @ResponseBody
+  String removeProdutoVenda(@RequestParam Map<String, String> request) {
+    Long posicaoProd = Long.decode(request.get("posicaoPro"));
+    Long venda = Long.decode(request.get("codigoVen"));
 
-	@RequestMapping(value = "/removeproduto", method = RequestMethod.POST)
-	public @ResponseBody String removeProdutoVenda(@RequestParam Map<String, String> request) {
-		Long posicaoProd = Long.decode(request.get("posicaoPro"));
-		Long venda = Long.decode(request.get("codigoVen"));
+    String mensagem = "";
+    try {
+      mensagem = vendasService.removeProduto(posicaoProd, venda);
+    } catch (Exception e) {
+      e.getStackTrace();
+    }
 
-		String mensagem = "";
-		try {
-			mensagem = vendas.removeProduto(posicaoProd, venda);
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
+    return mensagem;
+  }
 
-		return mensagem;
-	}
+  @RequestMapping(value = "/fechar", method = RequestMethod.POST)
+  public @ResponseBody
+  String fechar(@RequestParam Map<String, String> request) {
+    Long venda = Long.decode(request.get("venda"));
+    Long pagamentotipo = Long.decode(request.get("pagamentotipo"));
+    String valor_produtos = request.get("valor_produtos");
+    String valor_desconto = request.get("valor_desconto");
+    String valor_acrescimo = request.get("valor_acrescimo");
 
-	@RequestMapping(value = "/fechar", method = RequestMethod.POST)
-	public @ResponseBody String fechar(@RequestParam Map<String, String> request) {
-		Long venda = Long.decode(request.get("venda"));
-		Long pagamentotipo = Long.decode(request.get("pagamentotipo"));
-		String valor_produtos = request.get("valor_produtos");
-		String valor_desconto = request.get("valor_desconto");
-		String valor_acrescimo = request.get("valor_acrescimo");
+    String[] vlParcelas = request.get("valores").split(",");
+    String[] titulos = request.get("titulos").split(",");
 
-		String[] vlParcelas = request.get("valores").split(",");
-		String[] titulos = request.get("titulos").split(",");
+    Double vlprodutos = valor_produtos.isEmpty() ? 0.0 : Double.valueOf(valor_produtos.replace(",", "."));
+    Double vldesconto = valor_desconto.isEmpty() ? 0.0 : Double.valueOf(valor_desconto.replace(",", "."));
+    Double vlacrescimo = valor_acrescimo.isEmpty() ? 0.0 : Double.valueOf(valor_acrescimo.replace(",", "."));
 
-		Double vlprodutos = valor_produtos.isEmpty() ? 0.0 : Double.valueOf(valor_produtos.replace(",", "."));
-		Double vldesconto = valor_desconto.isEmpty() ? 0.0 : Double.valueOf(valor_desconto.replace(",", "."));
-		Double vlacrescimo = valor_acrescimo.isEmpty() ? 0.0 : Double.valueOf(valor_acrescimo.replace(",", "."));
+    return vendasService.fechaVenda(venda, pagamentotipo, vlprodutos, vldesconto, vlacrescimo, vlParcelas, titulos);
+  }
 
-		return vendas.fechaVenda(venda, pagamentotipo, vlprodutos, vldesconto, vlacrescimo, vlParcelas, titulos);
-	}
+  @RequestMapping(value = "/titulos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  public @ResponseBody
+  List<Titulo> titulos() {
+    return titulos.lista();
+  }
 
-	@RequestMapping(value = "/titulos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Titulo> titulos() {
-		return titulos.lista();
-	}
+  @ModelAttribute("clientes")
+  public List<Pessoa> clientes() {
+    return pessoas.lista();
+  }
 
-	@ModelAttribute("clientes")
-	public List<Pessoa> clientes() {
-		return pessoas.lista();
-	}
+  @ModelAttribute("situacoes")
+  public List<VendaSituacao> vendaSituacao() {
+    return Arrays.asList(VendaSituacao.values());
+  }
 
-	@ModelAttribute("situacoes")
-	public List<VendaSituacao> vendaSituacao() {
-		return Arrays.asList(VendaSituacao.values());
-	}
+  @ModelAttribute("produtos")
+  public List<Produto> produtos() {
+    return produtos.listar();
+  }
 
-	@ModelAttribute("produtos")
-	public List<Produto> produtos() {
-		return produtos.listar();
-	}
-	
-	@ModelAttribute("produtosVendaveis")
-	public List<Produto> produtosVendaveis() {
-		return produtos.listaProdutosVendaveis();
-	}
+  @ModelAttribute("produtosVendaveis")
+  public List<Produto> produtosVendaveis() {
+    return produtos.listaProdutosVendaveis();
+  }
 
-	@ModelAttribute("formaPagamento")
-	public List<PagamentoTipo> pagamentoTipo() {
-		return pagamentoTipos.listar();
-	}
+  @ModelAttribute("formaPagamento")
+  public List<PagamentoTipo> pagamentoTipo() {
+    return pagamentoTipos.listar();
+  }
 }

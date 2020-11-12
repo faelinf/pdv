@@ -18,10 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.originmobi.pdv.enumerado.TelefoneTipo;
 import net.originmobi.pdv.filter.FornecedorFilter;
-import net.originmobi.pdv.model.Cidade;
-import net.originmobi.pdv.model.Endereco;
-import net.originmobi.pdv.model.Fornecedor;
-import net.originmobi.pdv.model.Telefone;
+import net.originmobi.pdv.domain.Cidade;
+import net.originmobi.pdv.domain.Endereco;
+import net.originmobi.pdv.domain.Fornecedor;
+import net.originmobi.pdv.domain.Telefone;
 import net.originmobi.pdv.service.CidadeService;
 import net.originmobi.pdv.service.EnderecoService;
 import net.originmobi.pdv.service.FornecedorService;

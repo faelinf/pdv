@@ -17,12 +17,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.originmobi.pdv.enumerado.notafiscal.NotaFiscalTipo;
-import net.originmobi.pdv.model.Empresa;
-import net.originmobi.pdv.model.FreteTipo;
-import net.originmobi.pdv.model.NotaFiscal;
-import net.originmobi.pdv.model.NotaFiscalFinalidade;
-import net.originmobi.pdv.model.NotaFiscalTotais;
-import net.originmobi.pdv.model.Pessoa;
+import net.originmobi.pdv.domain.Empresa;
+import net.originmobi.pdv.domain.FreteTipo;
+import net.originmobi.pdv.domain.NotaFiscal;
+import net.originmobi.pdv.domain.NotaFiscalFinalidade;
+import net.originmobi.pdv.domain.NotaFiscalTotais;
+import net.originmobi.pdv.domain.Pessoa;
 import net.originmobi.pdv.repository.notafiscal.NotaFiscalRepository;
 import net.originmobi.pdv.service.EmpresaService;
 import net.originmobi.pdv.service.PessoaService;

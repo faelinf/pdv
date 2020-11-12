@@ -1,14 +1,13 @@
 package net.originmobi.pdv.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Produto;
-import net.originmobi.pdv.model.Venda;
-import net.originmobi.pdv.model.VendaProduto;
+import net.originmobi.pdv.domain.Produto;
+import net.originmobi.pdv.domain.venda.Venda;
+import net.originmobi.pdv.domain.VendaProduto;
 import net.originmobi.pdv.repository.VendaProdutosRepository;
 
 @Service

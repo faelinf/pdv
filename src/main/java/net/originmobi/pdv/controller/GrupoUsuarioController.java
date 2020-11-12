@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.GrupoUsuario;
-import net.originmobi.pdv.model.Permissoes;
+import net.originmobi.pdv.domain.GrupoUsuario;
+import net.originmobi.pdv.domain.Permissoes;
 import net.originmobi.pdv.service.GrupoUsuarioService;
 import net.originmobi.pdv.service.PermissoesService;
 

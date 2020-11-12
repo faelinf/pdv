@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import net.originmobi.pdv.model.NotaFiscal;
+import net.originmobi.pdv.domain.NotaFiscal;
 import net.originmobi.pdv.service.notafiscal.NotaFiscalService;
 
 @Component

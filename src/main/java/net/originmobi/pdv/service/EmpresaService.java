@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.originmobi.pdv.model.Cidade;
-import net.originmobi.pdv.model.Empresa;
-import net.originmobi.pdv.model.EmpresaParametro;
-import net.originmobi.pdv.model.Endereco;
-import net.originmobi.pdv.model.RegimeTributario;
+import net.originmobi.pdv.domain.Cidade;
+import net.originmobi.pdv.domain.Empresa;
+import net.originmobi.pdv.domain.EmpresaParametro;
+import net.originmobi.pdv.domain.Endereco;
+import net.originmobi.pdv.domain.RegimeTributario;
 import net.originmobi.pdv.repository.EmpresaParametrosRepository;
 import net.originmobi.pdv.repository.EmpresaRepository;
 

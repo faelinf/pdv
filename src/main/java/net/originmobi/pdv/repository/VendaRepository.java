@@ -12,9 +12,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import net.originmobi.pdv.enumerado.VendaSituacao;
-import net.originmobi.pdv.model.PagamentoTipo;
-import net.originmobi.pdv.model.Pessoa;
-import net.originmobi.pdv.model.Venda;
+import net.originmobi.pdv.domain.PagamentoTipo;
+import net.originmobi.pdv.domain.Pessoa;
+import net.originmobi.pdv.domain.venda.Venda;
 
 public interface VendaRepository extends JpaRepository<Venda, Long> {
 

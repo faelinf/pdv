@@ -21,8 +21,8 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import net.originmobi.pdv.filter.AjusteFilter;
-import net.originmobi.pdv.model.Ajuste;
-import net.originmobi.pdv.model.Produto;
+import net.originmobi.pdv.domain.Ajuste;
+import net.originmobi.pdv.domain.Produto;
 import net.originmobi.pdv.service.AjusteProdutoService;
 import net.originmobi.pdv.service.AjusteService;
 import net.originmobi.pdv.service.ProdutoService;

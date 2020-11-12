@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Endereco;
+import net.originmobi.pdv.domain.Endereco;
 import net.originmobi.pdv.repository.EnderecoRepository;
 
 @Service

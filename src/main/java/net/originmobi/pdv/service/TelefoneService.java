@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Telefone;
+import net.originmobi.pdv.domain.Telefone;
 import net.originmobi.pdv.repository.TelefoneRepository;
 
 @Service

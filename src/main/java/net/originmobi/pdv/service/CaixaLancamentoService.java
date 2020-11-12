@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.originmobi.pdv.enumerado.caixa.EstiloLancamento;
 import net.originmobi.pdv.enumerado.caixa.TipoLancamento;
-import net.originmobi.pdv.model.Caixa;
-import net.originmobi.pdv.model.CaixaLancamento;
+import net.originmobi.pdv.domain.Caixa;
+import net.originmobi.pdv.domain.CaixaLancamento;
 import net.originmobi.pdv.repository.CaixaLancamentoRepository;
 
 @Service

@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.originmobi.pdv.filter.PagarParcelaFilter;
-import net.originmobi.pdv.model.Caixa;
-import net.originmobi.pdv.model.Fornecedor;
-import net.originmobi.pdv.model.PagarParcela;
-import net.originmobi.pdv.model.PagarTipo;
+import net.originmobi.pdv.domain.Caixa;
+import net.originmobi.pdv.domain.Fornecedor;
+import net.originmobi.pdv.domain.PagarParcela;
+import net.originmobi.pdv.domain.PagarTipo;
 import net.originmobi.pdv.service.CaixaService;
 import net.originmobi.pdv.service.FornecedorService;
 import net.originmobi.pdv.service.PagarParcelaService;

@@ -3,9 +3,9 @@ package net.originmobi.pdv.service.notafiscal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Cst;
-import net.originmobi.pdv.model.NotaFiscalItemImposto;
-import net.originmobi.pdv.model.TributacaoRegra;
+import net.originmobi.pdv.domain.Cst;
+import net.originmobi.pdv.domain.NotaFiscalItemImposto;
+import net.originmobi.pdv.domain.TributacaoRegra;
 import net.originmobi.pdv.repository.notafiscal.NotaFiscalItemImpostoRepository;
 
 @Service

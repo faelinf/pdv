@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.originmobi.pdv.enumerado.EntradaSaida;
-import net.originmobi.pdv.model.TributacaoRegra;
+import net.originmobi.pdv.domain.TributacaoRegra;
 
 public interface TributacaoRegraRepository extends JpaRepository<TributacaoRegra, Long> {
 

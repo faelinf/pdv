@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.GrupoUsuario;
-import net.originmobi.pdv.model.Pessoa;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.GrupoUsuario;
+import net.originmobi.pdv.domain.Pessoa;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.service.GrupoUsuarioService;
 import net.originmobi.pdv.service.PessoaService;
 import net.originmobi.pdv.service.UsuarioService;

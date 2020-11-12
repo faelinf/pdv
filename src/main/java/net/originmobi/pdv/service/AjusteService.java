@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import net.originmobi.pdv.enumerado.EntradaSaida;
 import net.originmobi.pdv.enumerado.ajuste.AjusteStatus;
 import net.originmobi.pdv.filter.AjusteFilter;
-import net.originmobi.pdv.model.Ajuste;
+import net.originmobi.pdv.domain.Ajuste;
 import net.originmobi.pdv.repository.AjusteRepository;
 import net.originmobi.pdv.singleton.Aplicacao;
 

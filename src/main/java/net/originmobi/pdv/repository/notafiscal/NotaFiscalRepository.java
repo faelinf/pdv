@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import net.originmobi.pdv.model.NotaFiscal;
-import net.originmobi.pdv.model.NotaFiscalTotais;
+import net.originmobi.pdv.domain.NotaFiscal;
+import net.originmobi.pdv.domain.NotaFiscalTotais;
 
 public interface NotaFiscalRepository extends JpaRepository<NotaFiscal, Long> {
 

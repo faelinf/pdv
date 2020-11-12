@@ -19,10 +19,10 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import net.originmobi.pdv.enumerado.notafiscal.NotaFiscalTipo;
-import net.originmobi.pdv.model.FreteTipo;
-import net.originmobi.pdv.model.NotaFiscal;
-import net.originmobi.pdv.model.Pessoa;
-import net.originmobi.pdv.model.Produto;
+import net.originmobi.pdv.domain.FreteTipo;
+import net.originmobi.pdv.domain.NotaFiscal;
+import net.originmobi.pdv.domain.Pessoa;
+import net.originmobi.pdv.domain.Produto;
 import net.originmobi.pdv.service.PessoaService;
 import net.originmobi.pdv.service.ProdutoService;
 import net.originmobi.pdv.service.notafiscal.FreteTipoService;

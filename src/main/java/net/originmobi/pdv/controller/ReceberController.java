@@ -18,9 +18,9 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import net.originmobi.pdv.filter.ClienteFilter;
-import net.originmobi.pdv.model.Parcela;
-import net.originmobi.pdv.model.Pessoa;
-import net.originmobi.pdv.model.Receber;
+import net.originmobi.pdv.domain.Parcela;
+import net.originmobi.pdv.domain.Pessoa;
+import net.originmobi.pdv.domain.Receber;
 import net.originmobi.pdv.service.ParcelaService;
 import net.originmobi.pdv.service.PessoaService;
 import net.originmobi.pdv.service.RecebimentoService;

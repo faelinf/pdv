@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.GrupoUsuario;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.GrupoUsuario;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.repository.UsuarioRepository;
 
 @Service
@@ -66,7 +66,7 @@ public class UsuarioService {
 	}
 
 	public String addGrupo(Long codUsu, Long codGru) {
-		Usuario usuario = usuarios.findByCodigoIn(codUsu);
+		Usuario usuario = usuarios.findByCodigoIn(codUsu).orElse(null);
 		GrupoUsuario gruposUsu = grupos.buscaGrupo(codGru);
 
 		List<GrupoUsuario> listaGrupo = new ArrayList<>();
@@ -84,7 +84,7 @@ public class UsuarioService {
 	}
 
 	public String removeGrupo(Long codUsu, Long codGru) {
-		Usuario usuario = usuarios.findByCodigoIn(codUsu);
+		Usuario usuario = usuarios.findByCodigoIn(codUsu).orElse(null);
 		GrupoUsuario gruposUsu = grupos.buscaGrupo(codGru);
 
 		List<GrupoUsuario> todosGrupos = new ArrayList<>();

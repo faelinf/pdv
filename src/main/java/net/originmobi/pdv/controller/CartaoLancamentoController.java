@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import net.originmobi.pdv.enumerado.cartao.CartaoSituacao;
 import net.originmobi.pdv.enumerado.cartao.CartaoTipo;
 import net.originmobi.pdv.filter.CartaoFilter;
-import net.originmobi.pdv.model.cartao.CartaoLancamento;
+import net.originmobi.pdv.domain.cartao.CartaoLancamento;
 import net.originmobi.pdv.service.cartao.CartaoLancamentoService;
 
 @Controller

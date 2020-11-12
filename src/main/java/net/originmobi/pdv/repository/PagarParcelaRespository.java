@@ -11,8 +11,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.originmobi.pdv.model.Pagar;
-import net.originmobi.pdv.model.PagarParcela;
+import net.originmobi.pdv.domain.Pagar;
+import net.originmobi.pdv.domain.PagarParcela;
 
 public interface PagarParcelaRespository extends JpaRepository<PagarParcela, Long> {
 

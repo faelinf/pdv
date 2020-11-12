@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.CstCsosn;
+import net.originmobi.pdv.domain.CstCsosn;
 import net.originmobi.pdv.repository.CstCsosnRepository;
 
 @Service

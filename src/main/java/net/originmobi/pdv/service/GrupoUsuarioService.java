@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.GrupoUsuario;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.GrupoUsuario;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.repository.GrupoUsuarioRepository;
 
 @Service

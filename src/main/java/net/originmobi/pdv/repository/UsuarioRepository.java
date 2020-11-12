@@ -1,17 +1,18 @@
 package net.originmobi.pdv.repository;
 
+import net.originmobi.pdv.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import net.originmobi.pdv.model.Usuario;
+import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	public Usuario findByPessoaCodigoEquals(Long codigo);
+  public Usuario findByPessoaCodigoEquals(Long codigo);
 
-	public Usuario findByUserEquals(String user);
+  public Usuario findByUserEquals(String user);
 
-	public Usuario findByUserContaining(String usuario);
+  public Usuario findByUserContaining(String usuario);
 
-	public Usuario findByCodigoIn(Long codigo);
-	
+  Optional<Usuario> findByCodigoIn(Long codigo);
+
 }

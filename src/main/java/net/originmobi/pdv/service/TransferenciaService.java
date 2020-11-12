@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Caixa;
-import net.originmobi.pdv.model.Transferencia;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.Caixa;
+import net.originmobi.pdv.domain.Transferencia;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.repository.TransferenciaRepository;
 import net.originmobi.pdv.singleton.Aplicacao;
 import net.originmobi.pdv.utilitarios.DataAtual;

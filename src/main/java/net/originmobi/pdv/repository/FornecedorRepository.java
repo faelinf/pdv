@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import net.originmobi.pdv.model.Fornecedor;
+import net.originmobi.pdv.domain.Fornecedor;
 
 public interface FornecedorRepository extends JpaRepository<Fornecedor, Long> {
 

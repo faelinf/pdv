@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import net.originmobi.pdv.model.Receber;
+import net.originmobi.pdv.domain.Receber;
 
 public interface ReceberRepository extends JpaRepository<Receber, Long> {
 

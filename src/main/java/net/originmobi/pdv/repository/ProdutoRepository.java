@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.originmobi.pdv.model.Produto;
+import net.originmobi.pdv.domain.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 

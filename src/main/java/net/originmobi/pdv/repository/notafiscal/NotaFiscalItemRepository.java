@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import net.originmobi.pdv.model.NotaFiscalItem;
+import net.originmobi.pdv.domain.NotaFiscalItem;
 
 public interface NotaFiscalItemRepository extends JpaRepository<NotaFiscalItem, Long> {
 

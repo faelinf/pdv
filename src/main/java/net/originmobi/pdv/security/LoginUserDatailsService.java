@@ -12,9 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import net.originmobi.pdv.model.GrupoUsuario;
-import net.originmobi.pdv.model.Permissoes;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.GrupoUsuario;
+import net.originmobi.pdv.domain.Permissoes;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.repository.GrupoUsuarioRepository;
 import net.originmobi.pdv.repository.PermissoesRespository;
 import net.originmobi.pdv.repository.UsuarioRepository;

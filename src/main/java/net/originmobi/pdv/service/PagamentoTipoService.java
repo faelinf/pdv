@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.PagamentoTipo;
+import net.originmobi.pdv.domain.PagamentoTipo;
 import net.originmobi.pdv.repository.PagamentoTipoRespository;
 
 @Service

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.originmobi.pdv.model.Endereco;
+import net.originmobi.pdv.domain.Endereco;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
 

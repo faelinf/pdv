@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.PagamentoTipo;
+import net.originmobi.pdv.domain.PagamentoTipo;
 import net.originmobi.pdv.service.PagamentoTipoService;
 
 @Controller

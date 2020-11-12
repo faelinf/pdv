@@ -16,12 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.originmobi.pdv.enumerado.EntradaSaida;
-import net.originmobi.pdv.model.CFOP;
-import net.originmobi.pdv.model.Cst;
-import net.originmobi.pdv.model.CstCsosn;
-import net.originmobi.pdv.model.CstIPI;
-import net.originmobi.pdv.model.Estado;
-import net.originmobi.pdv.model.Tributacao;
+import net.originmobi.pdv.domain.CFOP;
+import net.originmobi.pdv.domain.Cst;
+import net.originmobi.pdv.domain.CstCsosn;
+import net.originmobi.pdv.domain.CstIPI;
+import net.originmobi.pdv.domain.Estado;
+import net.originmobi.pdv.domain.Tributacao;
 import net.originmobi.pdv.service.CfopService;
 import net.originmobi.pdv.service.CstCsosnService;
 import net.originmobi.pdv.service.CstService;

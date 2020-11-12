@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import net.originmobi.pdv.model.Pessoa;
+import net.originmobi.pdv.domain.Pessoa;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 

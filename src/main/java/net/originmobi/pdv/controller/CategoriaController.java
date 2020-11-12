@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.Categoria;
+import net.originmobi.pdv.domain.Categoria;
 import net.originmobi.pdv.service.CategoriaService;
 
 @Controller

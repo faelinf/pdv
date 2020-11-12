@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.originmobi.pdv.model.EmpresaParametro;
+import net.originmobi.pdv.domain.EmpresaParametro;
 
 public interface EmpresaParametrosRepository extends JpaRepository<EmpresaParametro, Long> {
 

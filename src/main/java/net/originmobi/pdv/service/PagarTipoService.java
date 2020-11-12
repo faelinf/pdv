@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.PagarTipo;
+import net.originmobi.pdv.domain.PagarTipo;
 import net.originmobi.pdv.repository.PagarTipoRepository;
 
 @Service

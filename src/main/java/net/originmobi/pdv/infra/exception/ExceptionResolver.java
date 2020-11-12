@@ -10,13 +10,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Component
 public class ExceptionResolver {
 
-  public static final String ACTION = "redirect:";
   public static final String MESSAGE_KEY = "message";
+  public static final String ACTION = "redirect:";
   public static final String VIEW = "/error";
 
   public String resolve(Exception ex, RedirectAttributes attributes) {
-    final String message = resolveMessage(ex);
-    attributes.addFlashAttribute(MESSAGE_KEY, message);
+    attributes.addFlashAttribute(MESSAGE_KEY, resolveMessage(ex));
     return String.format("%s%s", ACTION, VIEW);
   }
 

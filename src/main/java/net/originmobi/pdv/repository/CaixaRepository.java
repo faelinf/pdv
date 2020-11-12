@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import net.originmobi.pdv.enumerado.caixa.CaixaTipo;
-import net.originmobi.pdv.model.Caixa;
+import net.originmobi.pdv.domain.Caixa;
 
 public interface CaixaRepository extends JpaRepository<Caixa, Long> {
 

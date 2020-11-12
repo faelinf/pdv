@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.originmobi.pdv.model.Recebimento;
-import net.originmobi.pdv.model.Titulo;
+import net.originmobi.pdv.domain.Recebimento;
+import net.originmobi.pdv.domain.Titulo;
 import net.originmobi.pdv.service.RecebimentoService;
 
 @Controller

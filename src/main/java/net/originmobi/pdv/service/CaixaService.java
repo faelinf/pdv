@@ -17,9 +17,9 @@ import net.originmobi.pdv.enumerado.caixa.EstiloLancamento;
 import net.originmobi.pdv.enumerado.caixa.TipoLancamento;
 import net.originmobi.pdv.filter.BancoFilter;
 import net.originmobi.pdv.filter.CaixaFilter;
-import net.originmobi.pdv.model.Caixa;
-import net.originmobi.pdv.model.CaixaLancamento;
-import net.originmobi.pdv.model.Usuario;
+import net.originmobi.pdv.domain.Caixa;
+import net.originmobi.pdv.domain.CaixaLancamento;
+import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.repository.CaixaRepository;
 import net.originmobi.pdv.singleton.Aplicacao;
 

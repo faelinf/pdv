@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import net.originmobi.pdv.model.TributacaoRegra;
+import net.originmobi.pdv.domain.TributacaoRegra;
 import net.originmobi.pdv.service.TributacaoRegraService;
 
 @Controller

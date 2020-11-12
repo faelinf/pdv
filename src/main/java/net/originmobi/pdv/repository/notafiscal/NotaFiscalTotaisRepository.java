@@ -3,7 +3,7 @@ package net.originmobi.pdv.repository.notafiscal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import net.originmobi.pdv.model.NotaFiscalTotais;
+import net.originmobi.pdv.domain.NotaFiscalTotais;
 
 public interface NotaFiscalTotaisRepository extends JpaRepository<NotaFiscalTotais, Long> {
 

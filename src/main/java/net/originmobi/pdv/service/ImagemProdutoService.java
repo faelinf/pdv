@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import net.originmobi.pdv.model.ImagemProduto;
-import net.originmobi.pdv.model.Produto;
+import net.originmobi.pdv.domain.ImagemProduto;
+import net.originmobi.pdv.domain.Produto;
 import net.originmobi.pdv.repository.ImagemProdutoRepository;
 
 @Service

@@ -8,8 +8,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.originmobi.pdv.model.Empresa;
-import net.originmobi.pdv.model.Tributacao;
+import net.originmobi.pdv.domain.Empresa;
+import net.originmobi.pdv.domain.Tributacao;
 import net.originmobi.pdv.repository.TributacaoRepository;
 
 @Service

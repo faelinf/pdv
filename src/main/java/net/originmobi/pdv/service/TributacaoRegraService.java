@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.originmobi.pdv.enumerado.EntradaSaida;
-import net.originmobi.pdv.model.TributacaoRegra;
+import net.originmobi.pdv.domain.TributacaoRegra;
 import net.originmobi.pdv.repository.TributacaoRegraRepository;
 
 @Service

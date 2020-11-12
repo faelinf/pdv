@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.originmobi.pdv.model.Cidade;
-import net.originmobi.pdv.model.RegimeTributario;
-import net.originmobi.pdv.model.TipoAmbiente;
+import net.originmobi.pdv.domain.Cidade;
+import net.originmobi.pdv.domain.RegimeTributario;
+import net.originmobi.pdv.domain.TipoAmbiente;
 import net.originmobi.pdv.service.CidadeService;
 import net.originmobi.pdv.service.EmpresaService;
 import net.originmobi.pdv.service.RegimeTributarioService;

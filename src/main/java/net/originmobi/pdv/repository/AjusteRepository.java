@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import net.originmobi.pdv.model.Ajuste;
+import net.originmobi.pdv.domain.Ajuste;
 
 public interface AjusteRepository extends JpaRepository<Ajuste, Long> {
 
