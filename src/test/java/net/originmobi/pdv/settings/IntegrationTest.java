@@ -39,7 +39,7 @@ public class IntegrationTest {
         .build();
   }
 
-  protected Long extrctCodigoOf(ResultActions actions) {
+  protected Long extractCodigoOf(ResultActions actions) {
     final String codigo = String.valueOf(actions.andReturn().getFlashMap().get(CODIGO));
     return Long.valueOf(codigo);
   }

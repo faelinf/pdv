@@ -6,6 +6,8 @@ import net.originmobi.pdv.domain.Pessoa;
 import net.originmobi.pdv.domain.Produto;
 import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.enumerado.VendaSituacao;
+import net.originmobi.pdv.infra.intercionalization.I18nVenda;
+import net.originmobi.pdv.utilitarios.Checker;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -23,6 +25,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Venda implements Serializable {
@@ -173,7 +176,11 @@ public class Venda implements Serializable {
   }
 
   public void setSituacao(VendaSituacao situacao) {
-    this.situacao = situacao;
+    if (Objects.nonNull(situacao)) {
+      this.situacao = situacao;
+    } else {
+      abrir();
+    }
   }
 
   public Timestamp getData_cadastro() {
@@ -205,7 +212,7 @@ public class Venda implements Serializable {
   }
 
   public void setPessoa(Pessoa pessoa) {
-    this.pessoa = pessoa;
+    this.pessoa = Checker.exist(pessoa, I18nVenda.VENDA_PESSOA_REQUIRED);
   }
 
   public Usuario getUsuario() {
@@ -213,7 +220,7 @@ public class Venda implements Serializable {
   }
 
   public void setUsuario(Usuario usuario) {
-    this.usuario = usuario;
+    this.usuario = Checker.exist(usuario, I18nVenda.VENDA_USUARIO_REQUIRED);
   }
 
   public Double getValor_total() {
