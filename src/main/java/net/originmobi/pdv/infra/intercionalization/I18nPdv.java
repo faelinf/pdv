@@ -6,9 +6,12 @@ package net.originmobi.pdv.infra.intercionalization;
  */
 public enum I18nPdv implements I18nKey {
 
-  //User
+  // User
   USER_CURRENT_NOTFOUND("user.current.notFound"),
   USER_NOT_AUTHENTICATED("user.not.authenticated"),
+  // System
+  ERROR_INTERNAL("error.internal"),
+  INVALID_OPERATION("invalid.operation"),
   ;
 
   private final String key;

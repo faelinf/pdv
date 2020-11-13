@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 @ControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class ExceptionHandle {
+public class ExceptionAdvice {
 
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 

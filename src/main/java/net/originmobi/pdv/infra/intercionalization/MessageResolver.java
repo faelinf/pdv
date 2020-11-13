@@ -26,10 +26,18 @@ public class MessageResolver {
   }
 
   public String resolve(I18nKey key) {
-    return messageSource().getMessage(key.get(), null, LOCALE);
+    return resolve(key.get());
   }
 
-  public String resolve(String value, Object[] params) {
-    return messageSource().getMessage(value, params, LOCALE);
+  public String resolve(I18nKey key, Object[] params) {
+    return resolve(key.get(), params);
+  }
+
+  public String resolve(String key, Object[] params) {
+    return messageSource().getMessage(key, params, LOCALE);
+  }
+
+  public String resolve(String key) {
+    return messageSource().getMessage(key, null, LOCALE);
   }
 }

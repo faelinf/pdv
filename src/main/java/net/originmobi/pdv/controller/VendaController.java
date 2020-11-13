@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -93,7 +94,7 @@ public class VendaController {
   }
 
   @PostMapping
-  public String abrirVenda(AbrirVendaCommand command, RedirectAttributes attributes) {
+  public String abrirVenda(@Valid AbrirVendaCommand command, RedirectAttributes attributes) {
     final Venda venda = vendasService.when(command);
     attributes.addFlashAttribute(MESSAGE_KEY, message.resolve(I18nVenda.VENDA_SAVE));
     attributes.addFlashAttribute(ID_KEY, venda.getCodigo());

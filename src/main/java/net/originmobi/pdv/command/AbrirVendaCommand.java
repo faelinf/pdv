@@ -1,5 +1,6 @@
 package net.originmobi.pdv.command;
 
+import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
 /**
@@ -10,6 +11,7 @@ public class AbrirVendaCommand {
 
   public Long codigo;
 
+  @NotNull
   public Long pessoa;
 
   public String observacao;
