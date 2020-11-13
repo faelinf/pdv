@@ -1,17 +1,18 @@
 package net.originmobi.pdv.repository;
 
+import net.originmobi.pdv.domain.Pessoa;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import net.originmobi.pdv.domain.Pessoa;
-
+@Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
-	public Pessoa findByCpfcnpjContaining(String cpfcnpj);
+  Pessoa findByCpfcnpjContaining(String cpfcnpj);
 
-	public List<Pessoa> findByNomeContaining(String nome);
+  List<Pessoa> findByNomeContaining(String nome);
 
-	public Pessoa findByCodigoIn(Long codigo);
+  Pessoa findByCodigoIn(Long codigo);
 
 }

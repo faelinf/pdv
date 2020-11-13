@@ -81,32 +81,6 @@ public class VendaService {
   public Venda when(AbrirVendaCommand command) {
     final VendaData data = vendaResolver.resolve(command);
     return vendaUseCase.abrir(data);
-//    if (venda.getCodigo() == null) {
-//    Aplicacao aplicacao = Aplicacao.getInstancia();
-//      Usuario usuario = usuarios.buscaUsuario(aplicacao.getUsuarioAtual());
-//
-//      venda.setData_cadastro(dataHoraAtual);
-//      venda.setSituacao(VendaSituacao.ABERTA);
-//      venda.setUsuario(usuario);
-//      venda.setValor_produtos(0.00);
-//
-//      try {
-//        vendas.save(venda);
-//      } catch (Exception e) {
-//        e.getStackTrace();
-//      }
-//
-//    } else {
-//
-//      try {
-//        vendas.updateDadosVenda(venda.getPessoa(), venda.getObservacao(), venda.getCodigo());
-//      } catch (Exception e) {
-//        e.getStackTrace();
-//      }
-//
-//    }
-//
-//    return venda.getCodigo();
   }
 
   public Page<Venda> busca(VendaFilter filter, String situacao, Pageable pageable) {

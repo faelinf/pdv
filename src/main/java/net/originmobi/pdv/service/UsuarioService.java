@@ -37,7 +37,7 @@ public class UsuarioService {
 		
 		if (usuario.getCodigo() == null) {
 
-			Usuario usuarioExiste = usuarios.findByUserEquals(usuario.getUser());
+			Usuario usuarioExiste = usuarios.findByUser(usuario.getUser()).orElse(null);
 			Usuario pessoaUsuario = usuarios.findByPessoaCodigoEquals(usuario.getPessoa().getCodigo());
 
 			if (usuarioExiste != null) {
@@ -107,7 +107,7 @@ public class UsuarioService {
 	}
 
 	public Usuario buscaUsuario(String username) {
-		return usuarios.findByUserEquals(username);
+		return usuarios.findByUser(username).orElse(null);
 	}
 	
 }

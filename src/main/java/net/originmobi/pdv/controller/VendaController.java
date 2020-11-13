@@ -8,6 +8,8 @@ import net.originmobi.pdv.domain.Titulo;
 import net.originmobi.pdv.domain.venda.Venda;
 import net.originmobi.pdv.enumerado.VendaSituacao;
 import net.originmobi.pdv.filter.VendaFilter;
+import net.originmobi.pdv.infra.intercionalization.I18nVenda;
+import net.originmobi.pdv.infra.intercionalization.MessageResolver;
 import net.originmobi.pdv.service.PagamentoTipoService;
 import net.originmobi.pdv.service.PessoaService;
 import net.originmobi.pdv.service.ProdutoService;
@@ -39,8 +41,9 @@ import java.util.Map;
 public class VendaController {
 
   private static final String VENDA_LIST = "venda/list";
-
   private static final String VENDA_FORM = "venda/form";
+  public static final String MESSAGE_KEY = "mensagem";
+  public static final String ID_KEY = "codigo";
 
   @Autowired
   private VendaService vendasService;
@@ -59,6 +62,8 @@ public class VendaController {
 
   @Autowired
   private TituloService titulos;
+  @Autowired
+  private MessageResolver message;
 
   @GetMapping("/form")
   public ModelAndView form() {
@@ -90,15 +95,9 @@ public class VendaController {
   @PostMapping
   public String abrirVenda(AbrirVendaCommand command, RedirectAttributes attributes) {
     final Venda venda = vendasService.when(command);
-//    try {
-
-//      attributes.addFlashAttribute("mensagem", "Pedido Salvo");
-//    } catch (Exception e) {
-//      e.getStackTrace();
-//    }
-
-//		return VENDA_FORM;
-    return "redirect:/venda/" + venda.getCodigo();
+    attributes.addFlashAttribute(MESSAGE_KEY, message.resolve(I18nVenda.VENDA_SAVE));
+    attributes.addFlashAttribute(ID_KEY, venda.getCodigo());
+    return String.format("redirect:/venda/%s", venda.getCodigo());
   }
 
   @GetMapping("{codigo}")

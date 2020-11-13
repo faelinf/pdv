@@ -21,6 +21,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -75,22 +76,24 @@ public class Venda implements Serializable {
     super();
   }
 
-//  Venda(VendaData data) {
-//    super();
-//    data.getCodigo().ifPresent(this::setCodigo);
-//    update(data);
-//  }
-//
-//  void update(VendaData data) {
-//    setPessoa(data.getPessoa());
-//    data.getObservacao().ifPresentOrElse(this::setObservacao, this::removerObeservacao);
-//    setValor_total(data.getValorTotal());
-//    setValor_acrescimo(data.getValorAcrescimo());
-//    setPagamentotipo(data.getPagamentotipo());
-//    setProduto(data.getProduto());
-//    setSituacao(data.getSituacao());
-//  }
+  Venda(VendaData data) {
+    super();
+    data.getCodigo().ifPresent(this::setCodigo);
+    setData_cadastro(Timestamp.from(Instant.now()));
+    setPessoa(data.getPessoa());
+    setUsuario(data.getUsuario());
+    data.getObservacao().ifPresent(this::setObservacao);
+    setValor_total(data.getValorTotal());
+    setValor_acrescimo(data.getValorAcrescimo());
+    setPagamentotipo(data.getPagamentotipo());
+    setProduto(data.getProduto());
+    setSituacao(data.getSituacao());
+  }
 
+  void update(VendaData data) {
+    setObservacao(data.getObservacao().orElse(null));
+    setPessoa(data.getPessoa());
+  }
 
   public Venda(String observacao, Double valor_produtos, Double valor_desconto, Double valor_acrescimo,
                Double valor_total, VendaSituacao situacao, Timestamp data_cadastro, Timestamp data_finalizado,
@@ -242,7 +245,5 @@ public class Venda implements Serializable {
     this.valor_produtos = produto.stream().map(Produto::getValor_venda).reduce(0.0D, Double::sum);
   }
 
-  private void removerObeservacao() {
-    this.observacao = null;
-  }
+
 }

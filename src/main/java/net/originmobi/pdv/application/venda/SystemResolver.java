@@ -4,8 +4,11 @@ import net.originmobi.pdv.domain.Usuario;
 import net.originmobi.pdv.infra.exception.PDVException;
 import net.originmobi.pdv.infra.intercionalization.I18nPdv;
 import net.originmobi.pdv.repository.UsuarioRepository;
+import net.originmobi.pdv.security.UsuarioSistema;
+import net.originmobi.pdv.utilitarios.OptionalMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,12 +32,15 @@ public class SystemResolver {
   }
 
   public Optional<Usuario> usuario() {
-    return usuarioRepository.findByCodigoIn(codigoId());
+    return usuarioRepository.findByUser(username());
   }
 
-  private Long codigoId() {
-    autenticado();
-    return 1L;
+  private String username() {
+    final Object autenticacao = autenticado().getPrincipal();
+    return new OptionalMapper<Object, String>(autenticacao)
+        .instance(UsuarioSistema.class, UsuarioSistema::getUsername)
+        .instance(User.class, User::getUsername)
+        .getResult().orElseThrow(naoAutenticado());
   }
 
   private Authentication autenticado() {

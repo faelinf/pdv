@@ -1,7 +1,5 @@
 package net.originmobi.pdv.command;
 
-import net.originmobi.pdv.domain.Pessoa;
-
 import java.util.Optional;
 
 /**
@@ -11,6 +9,8 @@ import java.util.Optional;
 public class AbrirVendaCommand {
 
   public Long codigo;
+
+  public Long pessoa;
 
   public String observacao;
 
@@ -30,13 +30,13 @@ public class AbrirVendaCommand {
     this.observacao = observacao;
   }
 
-  public Pessoa getPessoa() {
+  public Long getPessoa() {
     return pessoa;
   }
 
-  public void setPessoa(Pessoa pessoa) {
+  public void setPessoa(Long pessoa) {
     this.pessoa = pessoa;
   }
 
-  public Pessoa pessoa;
+
 }

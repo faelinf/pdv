@@ -22,20 +22,22 @@ public class VendaUseCase {
 
   public Venda abrir(VendaData data) {
     Checker.notNull(data, I18nVenda.VENDA_NOTNULL);
-    return data.getCodigo().map(c -> atualizarVenda(data)).orElse(criarVenda(data));
+    if(data.getCodigo().isPresent()){
+      return atualizarVenda(data);
+    }
+    return criarVenda(data);
   }
 
   private Venda criarVenda(VendaData data) {
-//    final Venda venda = new Venda(data);
-//    venda.abrir();
-//    return vendasRepository.save(venda);
-    return null;
+    final Venda venda = new Venda(data);
+    venda.abrir();
+    return vendasRepository.save(venda);
   }
 
   private Venda atualizarVenda(VendaData data) {
     final Venda venda = data.getCodigo().flatMap(vendasRepository::findById)
         .orElseThrow(() -> PDVException.valueOf(I18nVenda.VENDA_NOTFOUND));
-//    venda.update(data);
+    venda.update(data);
     return vendasRepository.save(venda);
   }
 }

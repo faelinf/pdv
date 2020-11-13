@@ -21,12 +21,12 @@ public class PDVException extends RuntimeException {
 
   public PDVException(String key, List<Object> params) {
     super(key);
-    this.params = Objects.requireNonNullElseGet(params, Collections::emptyList);
+    this.params = Objects.nonNull(params) ? params : Collections.emptyList();
   }
 
   public PDVException(I18nKey key, List<Object> params, Throwable throwable) {
     super(key.get(), throwable);
-    this.params = Objects.requireNonNullElseGet(params, Collections::emptyList);
+    this.params = Objects.nonNull(params) ? params : Collections.emptyList();
   }
 
   public PDVException(I18nKey key, List<Object> params) {

@@ -7,6 +7,7 @@ package net.originmobi.pdv.infra.intercionalization;
 public enum I18nVenda implements I18nKey {
   VENDA_NOTNULL("venda.notNull"),
   VENDA_NOTFOUND("venda.notFound"),
+  VENDA_SAVE("venda.save"),
   ;
 
   private final String key;

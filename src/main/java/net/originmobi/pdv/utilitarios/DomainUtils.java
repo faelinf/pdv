@@ -5,7 +5,6 @@ import org.hibernate.Hibernate;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 /**
  * @author jonathas.assuncao on 12/11/2020
@@ -55,10 +54,6 @@ public final class DomainUtils {
 
   public static <T> Function<Object, Optional<T>> ifCast(Class<T> type) {
     return object -> DomainUtils.ifCast(object, type);
-  }
-
-  public static <T> Function<Object, Stream<T>> ifCastStream(Class<T> type) {
-    return ifCast(type).andThen(Optional::stream);
   }
 
 }
