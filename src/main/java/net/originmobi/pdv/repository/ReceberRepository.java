@@ -37,7 +37,7 @@ public interface ReceberRepository extends JpaRepository<Receber, Long> {
 
 	public List<Receber> findByPessoaNomeContaining(String nome);
 
-	@Query(value = "select coalesce(format(sum(p.valor_restante), 2, 'de_DE'), '0,00') from receber r, parcela p where p.receber_codigo = r.codigo "
+	@Query(value = "select coalesce(sum(p.valor_restante), 0) from receber r, parcela p where p.receber_codigo = r.codigo "
 			+ "and p.quitado = 0", nativeQuery = true)
 	public String total_a_receber();
 }

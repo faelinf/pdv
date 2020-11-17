@@ -42,7 +42,7 @@ public interface ParcelaRepository extends JpaRepository<Parcela, Long> {
 			+ "and pes.codigo = :codigo and p.quitado = :quitado order by p.codigo", nativeQuery = true)
 	public List<Parcela> buscaReceberDaPessoaCodigo(@Param("codigo") Long codpessoa, @Param("quitado") Boolean quitado);
 	
-	@Query(value = "select coalesce(format(sum(p.valor_restante), 2, 'de_DE'), format(0, 2, 'de_DE')) from parcela p, receber r, pessoa pes where r.codigo = p.receber_codigo and  pes.codigo = r.pessoa_codigo "
+	@Query(value = "select coalesce(sum(p.valor_restante), 0) from parcela p, receber r, pessoa pes where r.codigo = p.receber_codigo and  pes.codigo = r.pessoa_codigo "
 			+ "and pes.codigo = :codigo and p.quitado = :quitado order by p.codigo", nativeQuery = true)
 	public String somaTotaAReceberPessoaCodigo(@Param("codigo") Long codpessoa, @Param("quitado") Boolean quitado);
 
